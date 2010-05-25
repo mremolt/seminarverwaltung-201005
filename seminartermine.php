@@ -35,6 +35,15 @@
             $seminare = Seminar::getAll();
             $seminartermin = Seminartermin::getById($_REQUEST['id']);
 
+            if ($_POST) {
+                $seminartermin->setBeginn($_POST['beginn']);
+                $seminartermin->setEnde($_POST['beginn']);
+                $seminartermin->setRaum($_POST['beginn']);
+                $seminartermin->setSeminar_id($_POST['seminar_id']);
+                $seminartermin->save();
+                header('Location: seminartermine.php?action=list_by_seminar&seminar_id=' . $_POST['seminar_id']);
+                exit;
+            }
             break;
 
         default:
