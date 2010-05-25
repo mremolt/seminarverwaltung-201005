@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <h1>Liste aller Seminare</h1>
+
+        <table border="1">
+            <tr>
+                <th>Titel</th>
+                <th>Beschreibung</th>
+                <th>Preis</th>
+                <th>Kategorie</th>
+                <th>&nbsp;</th>
+            </tr>
+
+            <?php foreach ($seminare as $seminar) { ?>
+                <tr>
+                    <td>
+                        <a href="seminare.php?action=change&id=<?php echo $seminar->getId(); ?>">
+                            <?php echo $seminar->getTitel(); ?>
+                        </a>
+                    </td>
+                    <td><?php echo $seminar->getBeschreibung(); ?></td>
+                    <td><?php echo $seminar->getPreis(); ?>€</td>
+                    <td><?php echo $seminar->getKategorie(); ?></td>
+                    <td>
+                        <a href="seminare.php?action=delete&id=<?php echo $seminar->getId(); ?>">löschen</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+        <p>
+            <a href="seminare.php?action=add">neues Seminar anlegen</a>
+        </p>
+
+    </body>
+</html>

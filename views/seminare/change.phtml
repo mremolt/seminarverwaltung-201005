@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <h1>Seminar editieren</h1>
+        <form action="seminare.php?action=change" method="post">
+            <input type="hidden" name="id" value="<?php echo $seminar->getId() ?>" />
+            Titel: <input type="text" name="titel" 
+                          value="<?php echo $seminar->getTitel() ?>" /><br />
+            Beschreibung: <textarea rows="10" cols="30" name="beschreibung"><?php echo $seminar->getBeschreibung() ?></textarea><br />
+            Preis: <input type="text" name="preis"
+                          value="<?php echo $seminar->getPreis() ?>" /><br />
+            Kategorie: <input type="text" name="kategorie"
+                              value="<?php echo $seminar->getKategorie() ?>"/><br />
+            <input type="submit" value="Seminar speichern" />
+        </form>
+    </body>
+</html>
