@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Seminartermine zum Seminar <?php echo $seminar ?></title>
+    </head>
+    <body>
+        <h1>Seminartermine zum Seminar <?php echo $seminar ?></h1>
+
+        <table border="1">
+            <tr>
+                <th>Beginn</th>
+                <th>Ende</th>
+                <th>Raum</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+
+            <?php foreach ($seminartermine as $termin) { ?>
+                <tr>
+                    <td><?php echo $termin->getBeginn() ?></td>
+                    <td><?php echo $termin->getEnde() ?></td>
+                    <td><?php echo $termin->getRaum() ?></td>
+                    <td>
+                        <a href="seminartermine.php?action=change&id=<?php echo $termin->getId(); ?>">editieren</a>
+                    </td>
+                    <td>
+                        <a href="seminartermine.php?action=deleter&id=<?php echo $termin->getId(); ?>">löschen</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+        <p>
+            <a href="seminartermine.php?action=add">neuen Seminartermin anlegen</a>
+        </p>
+    </body>
+</html>
