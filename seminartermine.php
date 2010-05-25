@@ -37,13 +37,22 @@
 
             if ($_POST) {
                 $seminartermin->setBeginn($_POST['beginn']);
-                $seminartermin->setEnde($_POST['beginn']);
-                $seminartermin->setRaum($_POST['beginn']);
+                $seminartermin->setEnde($_POST['ende']);
+                $seminartermin->setRaum($_POST['raum']);
                 $seminartermin->setSeminar_id($_POST['seminar_id']);
                 $seminartermin->save();
+                
                 header('Location: seminartermine.php?action=list_by_seminar&seminar_id=' . $_POST['seminar_id']);
                 exit;
             }
+            break;
+
+        case 'delete':
+            $seminartermin = Seminartermin::getById($_REQUEST['id']);
+            $seminartermin->delete();
+            
+            header('Location: seminartermine.php?action=list');
+            exit;
             break;
 
         default:

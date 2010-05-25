@@ -11,7 +11,8 @@ and open the template in the editor.
     <body>
         <h1>Seminartermin "<?php echo $seminartermin ?>" bearbeiten</h1>
 
-        <form action="seminartermine.php?action=add" method="post">
+        <form action="seminartermine.php?action=change" method="post">
+            <input type="hidden" name="id" value="<?php echo $seminartermin->getId() ?>" />
             Seminar:
             <select name="seminar_id">
                 <?php foreach ($seminare as $seminar) { ?>
