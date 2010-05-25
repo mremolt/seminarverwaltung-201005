@@ -20,6 +20,23 @@
             $seminartermine = $seminar->getSeminartermine();
             break;
 
+        case 'add':
+            $seminare = Seminar::getAll();
+
+            if ($_POST) {
+                $seminartermin = new Seminartermin($_POST);
+                $seminartermin->save();
+                header('Location: seminartermine.php?action=list_by_seminar&seminar_id=' . $_POST['seminar_id']);
+                exit;
+            }
+            break;
+
+        case 'change':
+            $seminare = Seminar::getAll();
+            $seminartermin = Seminartermin::getById($_REQUEST['id']);
+
+            break;
+
         default:
             header('Location: seminartermine.php?action=list');
             exit;

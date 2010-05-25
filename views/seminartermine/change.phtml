@@ -1,0 +1,29 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Seminartermin "<?php echo $seminartermin ?>" bearbeiten</title>
+    </head>
+    <body>
+        <h1>Seminartermin "<?php echo $seminartermin ?>" bearbeiten</h1>
+
+        <form action="seminartermine.php?action=add" method="post">
+            Seminar:
+            <select name="seminar_id">
+                <?php foreach ($seminare as $seminar) { ?>
+                    <option value="<?php echo $seminar->getId() ?>"
+                        <?php if ($seminar->getId() == $seminartermin->getSeminar_id()) { ?>selected="selected"<?php } ?>
+                        ><?php echo $seminar ?></option>
+                <?php } ?>
+            </select><br />
+            Beginn: <input type="text" name="beginn" value="<?php echo $seminartermin->getBeginn() ?>" /><br />
+            Ende: <input type="text" name="ende" value="<?php echo $seminartermin->getEnde() ?>" /><br />
+            Raum: <input type="text" name="raum" value="<?php echo $seminartermin->getRaum() ?>" /><br />
+            <input type="submit" value="Termin bearbeiten" />
+        </form>
+    </body>
+</html>

@@ -67,7 +67,7 @@
         }
 
         public function __toString() {
-            return $this->getSeminar_id();
+            return $this->getSeminar() . ': ' . $this->getBeginn();
         }
 
         public function save() {
