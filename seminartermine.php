@@ -8,12 +8,11 @@
 
     session_start();
 
-    $title  = 'Tolle Seminarverwaltung';
     $action = $_REQUEST['action'];
 
     switch($action) {
         case 'list':
-            $seminare = Seminar::getAll();
+            $seminartermine = Seminartermin::getAll();
             break;
 
         case 'list_by_seminar':

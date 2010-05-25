@@ -8,7 +8,6 @@
 
     session_start();
 
-    $title  = 'Tolle Seminarverwaltung';
     $action = $_REQUEST['action'];
 
     switch($action) {
